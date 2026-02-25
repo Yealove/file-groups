@@ -1,4 +1,4 @@
-# File Groups
+# File Group Manager
 
 > 中文介绍请向下滚动
 
@@ -103,9 +103,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 If you find this extension helpful, please consider rating it on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager).
 
+**Made with ❤️ by Yealove**
+
 ---
 
-# 文件分组
+# 文件分组管理器
 
 将文件组织到分组中以便快速访问，提高工作效率。
 

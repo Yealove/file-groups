@@ -1,5 +1,5 @@
 {
-  "bookmark.displayName": "File Groups",
+  "bookmark.displayName": "File Group Manager",
   "bookmark.description": "Organize your files into groups for quick access",
   "bookmark.command.createGroup": "Create Group",
   "bookmark.command.addFileToGroup": "Add File to Group",

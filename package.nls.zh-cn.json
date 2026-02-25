@@ -1,5 +1,5 @@
 {
-  "bookmark.displayName": "文件分组",
+  "bookmark.displayName": "文件分组管理器",
   "bookmark.description": "将文件组织到分组中以便快速访问",
   "bookmark.command.createGroup": "创建分组",
   "bookmark.command.addFileToGroup": "添加文件到分组",

@@ -1,0 +1,12 @@
+{
+  "bookmark.displayName": "File Groups",
+  "bookmark.description": "Organize your files into groups for quick access",
+  "bookmark.command.createGroup": "Create Group",
+  "bookmark.command.addFileToGroup": "Add File to Group",
+  "bookmark.command.refresh": "Refresh",
+  "bookmark.command.deleteGroup": "Delete Group",
+  "bookmark.command.renameGroup": "Rename Group",
+  "bookmark.command.removeFile": "Remove from Group",
+  "bookmark.viewContainer": "File Groups",
+  "bookmark.view": "My Groups"
+}

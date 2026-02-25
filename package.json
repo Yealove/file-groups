@@ -1,0 +1,155 @@
+{
+  "name": "file-groups",
+  "displayName": "%bookmark.displayName%",
+  "description": "%bookmark.description%",
+  "version": "0.0.1",
+  "publisher": "yealove",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "file",
+    "group",
+    "bookmark",
+    "organize",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yealove/file-groups.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yealove/file-groups/issues"
+  },
+  "homepage": "https://github.com/Yealove/file-groups#readme",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bookmark.createGroup",
+        "title": "%bookmark.command.createGroup%",
+        "icon": "$(add)"
+      },
+      {
+        "command": "bookmark.addFileToGroup",
+        "title": "%bookmark.command.addFileToGroup%"
+      },
+      {
+        "command": "bookmark.refresh",
+        "title": "%bookmark.command.refresh%",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "bookmark.deleteGroup",
+        "title": "%bookmark.command.deleteGroup%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "bookmark.renameGroup",
+        "title": "%bookmark.command.renameGroup%",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "bookmark.removeFile",
+        "title": "%bookmark.command.removeFile%",
+        "icon": "$(remove)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bookmark-view-container",
+          "title": "%bookmark.viewContainer%",
+          "icon": "$(folder-library)"
+        }
+      ]
+    },
+    "views": {
+      "bookmark-view-container": [
+        {
+          "id": "bookmarkTree",
+          "name": ""
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "bookmark.addFileToGroup",
+          "group": "bookmark@1"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "bookmark.addFileToGroup",
+          "group": "bookmark@1"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "bookmark.createGroup",
+          "when": "view == bookmarkTree",
+          "group": "navigation"
+        },
+        {
+          "command": "bookmark.refresh",
+          "when": "view == bookmarkTree",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "bookmark.deleteGroup",
+          "when": "view == bookmarkTree && viewItem == group",
+          "group": "inline@1",
+          "icon": "$(trash)"
+        },
+        {
+          "command": "bookmark.renameGroup",
+          "when": "view == bookmarkTree && viewItem == group",
+          "group": "inline@2",
+          "icon": "$(edit)"
+        },
+        {
+          "command": "bookmark.removeFile",
+          "when": "view == bookmarkTree && viewItem == file",
+          "group": "inline@1",
+          "icon": "$(remove)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/uuid": "^10.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "uuid": "^13.0.0"
+  }
+}

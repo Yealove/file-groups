@@ -2,9 +2,9 @@
 
 > 中文介绍请向下滚动
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/yealove.file-groups)](https://marketplace.visualstudio.com/items?itemName=yealove.file-groups)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/yealove.file-groups)](https://marketplace.visualstudio.com/items?itemName=yealove.file-groups)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/yealove.file-groups)](https://marketplace.visualstudio.com/items?itemName=yealove.file-groups)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/yealove.file-group-manager)](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/yealove.file-group-manager)](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/yealove.file-group-manager)](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager)
 
 Organize your files into groups for quick access and better productivity.
 
@@ -101,7 +101,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-If you find this extension helpful, please consider rating it on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=yealove.file-groups).
+If you find this extension helpful, please consider rating it on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager).
 
 ---
 
@@ -196,6 +196,6 @@ If you find this extension helpful, please consider rating it on the [VSCode Mar
 
 ## 支持
 
-如果您觉得这个扩展有帮助，请在 [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=yealove.file-groups) 上为其评分。
+如果您觉得这个扩展有帮助，请在 [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=yealove.file-group-manager) 上为其评分。
 
 **Made with ❤️ by Yealove**

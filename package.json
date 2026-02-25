@@ -1,5 +1,5 @@
 {
-  "name": "file-groups",
+  "name": "file-group-manager",
   "displayName": "%bookmark.displayName%",
   "description": "%bookmark.description%",
   "version": "0.0.1",

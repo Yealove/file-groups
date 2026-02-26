@@ -167,6 +167,54 @@ export class BookmarkManager {
   }
 
   /**
+   * 移动文件到另一个分组
+   */
+  async moveFileToGroup(
+    fileUri: string,
+    fromGroupId: string,
+    toGroupId: string
+  ): Promise<void> {
+    // 验证源分组
+    const fromGroup = this.getGroupById(fromGroupId);
+    if (!fromGroup) {
+      throw new Error(`Source group not found`);
+    }
+
+    // 验证目标分组
+    const toGroup = this.getGroupById(toGroupId);
+    if (!toGroup) {
+      throw new Error(`Target group not found`);
+    }
+
+    // 如果是同一分组，不做操作
+    if (fromGroupId === toGroupId) {
+      return;
+    }
+
+    // 检查文件是否在源分组中
+    const fileIndex = fromGroup.files.findIndex(f => f.uri === fileUri);
+    if (fileIndex === -1) {
+      throw new Error(`File not found in source group`);
+    }
+
+    // 检查目标分组是否已有该文件
+    const existingInTarget = toGroup.files.find(f => f.uri === fileUri);
+    if (existingInTarget) {
+      throw new Error(`File already exists in target group`);
+    }
+
+    // 移动文件
+    const [file] = fromGroup.files.splice(fileIndex, 1);
+    toGroup.files.push(file);
+
+    // 更新时间戳
+    fromGroup.updatedAt = Date.now();
+    toGroup.updatedAt = Date.now();
+
+    await this.save();
+  }
+
+  /**
    * 获取分组中的文件
    */
   getGroupFiles(groupId: string): BookmarkFile[] {

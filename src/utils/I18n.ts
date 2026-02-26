@@ -9,6 +9,8 @@ interface I18nStrings {
   commandAddFileToGroup: string;
   commandDeleteGroup: string;
   commandRenameGroup: string;
+  commandCopyFileName: string;
+  commandCopyFilePath: string;
 
   // 提示信息
   noActiveFile: string;
@@ -19,6 +21,8 @@ interface I18nStrings {
   groupNotFound: string;
   fileAlreadyExists: string;
   fileNotFound: string;
+  dropToGroupRequired: string;
+  moveFileFailed: string;
 
   // 确认对话框
   confirmDeleteGroup: string;
@@ -31,6 +35,10 @@ interface I18nStrings {
   groupDeleted: string;
   fileAdded: string;
   fileRemoved: string;
+  fileNameCopied: string;
+  filePathCopied: string;
+  fileMoved: string;
+  filesMoved: string;
   noGroupsFound: string;
   selectGroup: string;
 
@@ -55,6 +63,8 @@ const enStrings: I18nStrings = {
   commandAddFileToGroup: 'Add File to Group',
   commandDeleteGroup: 'Delete Group',
   commandRenameGroup: 'Rename Group',
+  commandCopyFileName: 'Copy File Name',
+  commandCopyFilePath: 'Copy Relative Path',
   noActiveFile: 'No active file to add',
   enterGroupName: 'Enter group name',
   enterNewGroupName: 'Enter a new name for the group',
@@ -63,6 +73,8 @@ const enStrings: I18nStrings = {
   groupNotFound: 'Group not found',
   fileAlreadyExists: 'File already exists in this group',
   fileNotFound: 'File not found in this group',
+  dropToGroupRequired: 'Please drop the file onto a group',
+  moveFileFailed: 'Failed to move file',
   confirmDeleteGroup: 'Are you sure you want to delete group "{name}"?',
   confirmDeleteGroupWithFiles: 'Are you sure you want to delete group "{name}" with {count} file(s)?',
   confirmRemoveFile: 'Remove "{fileName}" from group "{groupName}"?',
@@ -71,6 +83,10 @@ const enStrings: I18nStrings = {
   groupDeleted: 'Group "{name}" deleted',
   fileAdded: 'Added "{fileName}" to group "{groupName}"',
   fileRemoved: 'Removed "{fileName}" from group',
+  fileNameCopied: 'Copied file name: "{fileName}"',
+  filePathCopied: 'Copied path: "{path}"',
+  fileMoved: 'Moved "{fileName}" from "{fromGroup}" to "{toGroup}"',
+  filesMoved: 'Moved {count} files to "{toGroup}"',
   noGroupsFound: 'No groups found. Would you like to create one?',
   selectGroup: 'Select a group',
   createGroup: 'Create Group',
@@ -89,6 +105,8 @@ const zhStrings: I18nStrings = {
   commandAddFileToGroup: '添加文件到分组',
   commandDeleteGroup: '删除分组',
   commandRenameGroup: '重命名分组',
+  commandCopyFileName: '复制文件名',
+  commandCopyFilePath: '复制相对路径',
   noActiveFile: '没有活动文件可添加',
   enterGroupName: '输入分组名称',
   enterNewGroupName: '输入分组的新名称',
@@ -97,6 +115,8 @@ const zhStrings: I18nStrings = {
   groupNotFound: '分组未找到',
   fileAlreadyExists: '文件已存在于该分组中',
   fileNotFound: '文件未在该分组中找到',
+  dropToGroupRequired: '请将文件拖放到分组上',
+  moveFileFailed: '移动文件失败',
   confirmDeleteGroup: '确定要删除分组 "{name}" 吗？',
   confirmDeleteGroupWithFiles: '确定要删除分组 "{name}" 及其 {count} 个文件吗？',
   confirmRemoveFile: '从分组 "{groupName}" 中移除 "{fileName}" 吗？',
@@ -105,6 +125,10 @@ const zhStrings: I18nStrings = {
   groupDeleted: '分组 "{name}" 已删除',
   fileAdded: '已将 "{fileName}" 添加到分组 "{groupName}"',
   fileRemoved: '已从分组中移除 "{fileName}"',
+  fileNameCopied: '已复制文件名："{fileName}"',
+  filePathCopied: '已复制路径："{path}"',
+  fileMoved: '已将 "{fileName}" 从 "{fromGroup}" 移动到 "{toGroup}"',
+  filesMoved: '已移动 {count} 个文件到 "{toGroup}"',
   noGroupsFound: '没有找到分组。要创建一个吗？',
   selectGroup: '选择一个分组',
   createGroup: '创建分组',

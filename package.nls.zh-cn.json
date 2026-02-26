@@ -7,6 +7,9 @@
   "bookmark.command.deleteGroup": "删除分组",
   "bookmark.command.renameGroup": "重命名分组",
   "bookmark.command.removeFile": "从分组中移除",
+  "bookmark.command.toggleViewMode": "切换显示模式",
+  "bookmark.command.copyFileName": "复制文件名",
+  "bookmark.command.copyFilePath": "复制相对路径",
   "bookmark.viewContainer": "文件分组",
   "bookmark.view": "我的分组"
 }

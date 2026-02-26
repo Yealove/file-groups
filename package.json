@@ -2,7 +2,7 @@
   "name": "file-group-manager",
   "displayName": "%bookmark.displayName%",
   "description": "%bookmark.description%",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "yealove",
   "engines": {
     "vscode": "^1.85.0"
@@ -59,6 +59,19 @@
         "command": "bookmark.removeFile",
         "title": "%bookmark.command.removeFile%",
         "icon": "$(remove)"
+      },
+      {
+        "command": "bookmark.toggleViewMode",
+        "title": "%bookmark.command.toggleViewMode%",
+        "icon": "$(list-tree)"
+      },
+      {
+        "command": "bookmark.copyFileName",
+        "title": "%bookmark.command.copyFileName%"
+      },
+      {
+        "command": "bookmark.copyFilePath",
+        "title": "%bookmark.command.copyFilePath%"
       }
     ],
     "viewsContainers": {
@@ -101,6 +114,11 @@
           "command": "bookmark.refresh",
           "when": "view == bookmarkTree",
           "group": "navigation"
+        },
+        {
+          "command": "bookmark.toggleViewMode",
+          "when": "view == bookmarkTree",
+          "group": "navigation"
         }
       ],
       "view/item/context": [
@@ -121,6 +139,16 @@
           "when": "view == bookmarkTree && viewItem == file",
           "group": "inline@1",
           "icon": "$(remove)"
+        },
+        {
+          "command": "bookmark.copyFileName",
+          "when": "view == bookmarkTree && viewItem == file",
+          "group": "clipboard@1"
+        },
+        {
+          "command": "bookmark.copyFilePath",
+          "when": "view == bookmarkTree && viewItem == file",
+          "group": "clipboard@2"
         }
       ]
     }

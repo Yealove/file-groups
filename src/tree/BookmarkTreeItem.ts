@@ -16,6 +16,8 @@ export class BookmarkTreeItem extends vscode.TreeItem {
 
     if (data.type === 'group') {
       this.setupGroupNode(data);
+    } else if (data.type === 'directory') {
+      this.setupDirectoryNode(data);
     } else if (data.type === 'file') {
       this.setupFileNode(data);
     }
@@ -63,12 +65,29 @@ export class BookmarkTreeItem extends vscode.TreeItem {
   }
 
   /**
+   * 设置目录节点
+   */
+  private setupDirectoryNode(data: TreeItemData): void {
+    // 对于合并的路径，显示完整路径（例如：src/components）
+    // 对于单级路径，显示目录名
+    const label = data.directoryPath || '';
+
+    this.label = label;
+    this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+    this.contextValue = 'directory';
+    this.iconPath = new vscode.ThemeIcon('folder');
+    this.id = `directory-${data.groupId}-${data.directoryPath}`;
+  }
+
+  /**
    * 获取提示信息
    */
   getTooltip(): string {
     if (this.data.type === 'group') {
       const fileCount = this.data.group?.files.length || 0;
       return `${this.data.group?.name} (${fileCount} files)`;
+    } else if (this.data.type === 'directory') {
+      return this.data.directoryPath || '';
     } else {
       return this.data.file?.relativePath || '';
     }

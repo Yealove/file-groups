@@ -39,7 +39,7 @@ export interface BookmarkData {
 /**
  * TreeView 节点类型
  */
-export type TreeItemType = 'group' | 'file';
+export type TreeItemType = 'group' | 'directory' | 'file';
 
 /**
  * TreeItem 数据结构
@@ -47,8 +47,10 @@ export type TreeItemType = 'group' | 'file';
 export interface TreeItemData {
   /** 节点类型 */
   type: TreeItemType;
-  /** 分组 ID（仅文件节点需要） */
+  /** 分组 ID（文件和目录节点需要） */
   groupId?: string;
+  /** 目录路径（仅目录节点需要） */
+  directoryPath?: string;
   /** 分组对象（仅分组节点需要） */
   group?: BookmarkGroup;
   /** 文件对象（仅文件节点需要） */

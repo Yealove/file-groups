@@ -7,6 +7,9 @@
   "bookmark.command.deleteGroup": "Delete Group",
   "bookmark.command.renameGroup": "Rename Group",
   "bookmark.command.removeFile": "Remove from Group",
+  "bookmark.command.toggleViewMode": "Toggle View Mode",
+  "bookmark.command.copyFileName": "Copy File Name",
+  "bookmark.command.copyFilePath": "Copy Relative Path",
   "bookmark.viewContainer": "File Groups",
   "bookmark.view": "My Groups"
 }

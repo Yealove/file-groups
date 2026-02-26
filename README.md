@@ -78,14 +78,18 @@ Please report any issues on [GitHub Issues](https://github.com/Yealove/file-grou
 
 ## Release Notes
 
-### 0.0.1
+See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
 
-Initial release:
-- Create/Delete/Rename file groups
-- Add/Remove files from groups
-- Persistent workspace storage
-- Multi-language support (English and Chinese)
-- Inline action buttons for quick management
+### 1.0.0
+
+First stable release:
+- **Group Management** - Create, delete, and rename file groups
+- **File Operations** - Add, remove, and drag files between groups
+- **Dual View Modes** - Toggle between flat view and tree view
+- **Quick Actions** - Copy file names and relative paths
+- **Multi-language Support** - Full support for English and Chinese
+- **Context Menu Integration** - Right-click menus in explorer and editor
+- **Drag & Drop** - Drag files to move them between groups
 
 ## Working with Multiple Workspaces
 
@@ -175,14 +179,18 @@ If you find this extension helpful, please consider rating it on the [VSCode Mar
 
 ## 发布说明
 
-### 0.0.1
+详细发布说明请参阅 [CHANGELOG.md](CHANGELOG.md)。
 
-首次发布：
-- 创建/删除/重命名文件分组
-- 添加/移除分组中的文件
-- 持久化工作区存储
-- 多语言支持（中文和英文）
-- 内联操作按钮，快速管理
+### 1.0.0
+
+首个稳定版发布：
+- **分组管理** - 创建、删除和重命名文件分组
+- **文件操作** - 添加、移除文件，支持拖拽在分组间移动
+- **双视图模式** - 扁平视图和树形视图一键切换
+- **快捷操作** - 复制文件名和相对路径
+- **多语言支持** - 完整的中文和英文支持
+- **右键菜单集成** - 资源管理器和编辑器右键菜单
+- **拖拽功能** - 拖拽文件在不同分组间移动
 
 ## 多工作区使用
 

@@ -26,6 +26,12 @@ export class FileCommands {
       vscode.commands.registerCommand('bookmark.openFile', (fileUri: string) => this.openFile(fileUri)),
       vscode.commands.registerCommand('bookmark.addCurrentFileToGroup', () =>
         this.addCurrentFileToGroup()
+      ),
+      vscode.commands.registerCommand('bookmark.copyFileName', (arg) =>
+        this.copyFileName(arg)
+      ),
+      vscode.commands.registerCommand('bookmark.copyFilePath', (arg) =>
+        this.copyFilePath(arg)
       )
     ];
   }
@@ -163,5 +169,55 @@ export class FileCommands {
     }
 
     await this.addFileToGroup(uri);
+  }
+
+  /**
+   * 复制文件名
+   */
+  private async copyFileName(arg: any): Promise<void> {
+    const i18n = I18n.get();
+
+    // 提取文件名
+    let fileName: string;
+    if (arg instanceof BookmarkTreeItem && arg.data.type === 'file') {
+      fileName = arg.data.file?.fileName || '';
+    } else {
+      vscode.window.showErrorMessage(i18n.fileNotFound);
+      return;
+    }
+
+    if (!fileName) {
+      vscode.window.showErrorMessage(i18n.fileNotFound);
+      return;
+    }
+
+    // 复制到剪贴板
+    await vscode.env.clipboard.writeText(fileName);
+    vscode.window.showInformationMessage(I18n.format(i18n.fileNameCopied, { fileName }));
+  }
+
+  /**
+   * 复制相对路径
+   */
+  private async copyFilePath(arg: any): Promise<void> {
+    const i18n = I18n.get();
+
+    // 提取相对路径
+    let relativePath: string;
+    if (arg instanceof BookmarkTreeItem && arg.data.type === 'file') {
+      relativePath = arg.data.file?.relativePath || '';
+    } else {
+      vscode.window.showErrorMessage(i18n.fileNotFound);
+      return;
+    }
+
+    if (!relativePath) {
+      vscode.window.showErrorMessage(i18n.fileNotFound);
+      return;
+    }
+
+    // 复制到剪贴板
+    await vscode.env.clipboard.writeText(relativePath);
+    vscode.window.showInformationMessage(I18n.format(i18n.filePathCopied, { path: relativePath }));
   }
 }

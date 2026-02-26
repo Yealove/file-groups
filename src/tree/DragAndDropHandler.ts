@@ -16,7 +16,7 @@ export class DragAndDropHandler implements vscode.TreeDragAndDropController<Book
 
   constructor(
     private bookmarkManager: BookmarkManager,
-    private treeDataProvider: { refresh(): void; clearDirectoryCache(): void }
+    private treeDataProvider: { refresh(): void }
   ) {}
 
   /**
@@ -131,8 +131,7 @@ export class DragAndDropHandler implements vscode.TreeDragAndDropController<Book
     // 清空拖拽源
     this.currentDragSources = [];
 
-    // 清空目录树缓存并刷新视图
-    this.treeDataProvider.clearDirectoryCache();
+    // 刷新视图（refresh 会自动清理缓存）
     this.treeDataProvider.refresh();
 
     // 显示成功消息

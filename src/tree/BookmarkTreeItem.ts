@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { TreeItemType, TreeItemData } from '../types';
+import { TreeItemData } from '../types';
 import { I18n } from '../utils/I18n';
 
 /**
@@ -48,8 +48,12 @@ export class BookmarkTreeItem extends vscode.TreeItem {
     this.label = data.file?.fileName || '';
     this.collapsibleState = vscode.TreeItemCollapsibleState.None;
     this.contextValue = 'file';
-    this.iconPath = new vscode.ThemeIcon('file');
     this.id = `file-${data.groupId}-${data.file?.uri}`;
+
+    // 设置 resourceUri，VSCode 会自动应用文件图标主题
+    if (data.file?.uri) {
+      this.resourceUri = vscode.Uri.parse(data.file.uri);
+    }
 
     // 设置描述为相对路径
     this.description = data.file?.relativePath || '';

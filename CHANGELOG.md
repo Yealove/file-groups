@@ -5,6 +5,30 @@ All notable changes to the "File Group Manager" extension will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-02-26
+
+### Fixed
+
+**树形视图优化 (Tree View Optimization)**
+- 修复树形视图中空目录显示的问题 - Fixed empty directories appearing in tree view
+- 重构树形视图实现，代码减少 31%（480 行 → 331 行）- Refactored tree view implementation, reduced code by 31% (480 → 331 lines)
+- 使用更简洁的 buildFileTree + optimizeTree 方法 - Adopted cleaner buildFileTree + optimizeTree approach
+- 自动合并单子目录，优化树结构显示 - Automatically merge single-child directories for better tree structure
+
+**图标改进 (Icon Improvements)**
+- 使用 resourceUri 自动应用文件图标主题 - Use resourceUri to automatically apply file icon themes
+- 支持用户安装的图标主题（Material Icon Theme、VSCode Icons 等）- Support user-installed icon themes
+- 不同文件类型显示对应彩色图标 - Display colored icons for different file types
+- .vue 文件显示绿色 Vue 图标，.ts 显示蓝色 TS 图标等 - .vue files show green Vue icon, .ts show blue TS icon, etc.
+
+### Technical Changes
+
+**代码重构 (Code Refactoring)**
+- 移除复杂的 mergePaths 算法，改用递归 optimizeTree - Removed complex mergePaths algorithm in favor of recursive optimizeTree
+- 简化树缓存机制（从 DirectoryNode[] 改为 TreeNode）- Simplified tree caching mechanism (DirectoryNode[] → TreeNode)
+- 修复 findNodeByPath 无法查找直接子节点的 bug - Fixed findNodeByPath bug where direct child nodes couldn't be found
+- 修复节点已存在时 isFile 标志未更新的 bug - Fixed bug where isFile flag wasn't updated when node already existed
+
 ## [1.0.0] - 2026-02-26
 
 ### Added

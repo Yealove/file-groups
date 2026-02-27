@@ -2,8 +2,9 @@
   "name": "file-group-manager",
   "displayName": "%bookmark.displayName%",
   "description": "%bookmark.description%",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "yealove",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.85.0"
   },

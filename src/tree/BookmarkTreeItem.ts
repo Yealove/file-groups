@@ -74,9 +74,35 @@ export class BookmarkTreeItem extends vscode.TreeItem {
   private setupDirectoryNode(data: TreeItemData): void {
     // 对于合并的路径，显示完整路径（例如：src/components）
     // 对于单级路径，显示目录名
-    const label = data.directoryPath || '';
+    let label = data.directoryPath || '';
+
+    // 如果路径太长，使用省略号显示
+    const maxLength = 30;
+    if (label.length > maxLength) {
+      // 保留最后一级目录完整显示，前面的部分用省略号
+      const parts = label.split('/');
+      if (parts.length > 1) {
+        // 最后一级目录名
+        const lastPart = parts[parts.length - 1];
+        // 倒数第二级目录名
+        const secondLastPart = parts.length > 1 ? parts[parts.length - 2] : '';
+
+        // 如果最后两级就足够短，只显示最后两级
+        const shortLabel = `${secondLastPart}/${lastPart}`;
+        if (shortLabel.length <= maxLength - 4) {
+          label = `.../${shortLabel}`;
+        } else {
+          // 否则只保留最后一级，前面用省略号
+          label = `.../${lastPart}`;
+        }
+      } else {
+        // 只有一级，直接截断
+        label = `...${label.slice(-(maxLength - 3))}`;
+      }
+    }
 
     this.label = label;
+    this.tooltip = data.directoryPath || ''; // 悬停时显示完整路径
     this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
     this.contextValue = 'directory';
     this.iconPath = new vscode.ThemeIcon('folder');

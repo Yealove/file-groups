@@ -1,10 +1,31 @@
 import * as vscode from 'vscode';
 import { BookmarkManager } from './core/BookmarkManager';
 import { BookmarkTreeProvider } from './tree/BookmarkTreeProvider';
+import { BookmarkTreeItem } from './tree/BookmarkTreeItem';
 import { DragAndDropHandler } from './tree/DragAndDropHandler';
 import { GroupCommands } from './commands/groupCommands';
 import { FileCommands } from './commands/fileCommands';
 import { I18n } from './utils/I18n';
+
+/**
+ * 递归展开所有子节点
+ */
+async function expandAllChildren(
+  treeView: vscode.TreeView<BookmarkTreeItem>,
+  treeDataProvider: BookmarkTreeProvider,
+  item: BookmarkTreeItem
+): Promise<void> {
+  // 展开当前节点
+  await treeView.reveal(item, { expand: 2 }); // expand: 2 表示展开所有层级
+
+  // 获取子节点
+  const children = await treeDataProvider.getChildren(item);
+  if (children && children.length > 0) {
+    for (const child of children) {
+      await expandAllChildren(treeView, treeDataProvider, child);
+    }
+  }
+}
 
 /**
  * 插件激活
@@ -33,6 +54,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 设置激活上下文
   vscode.commands.executeCommand('setContext', 'bookmark.enabled', true);
+  // 设置初始视图模式上下文
+  vscode.commands.executeCommand('setContext', 'bookmark.viewMode', 'flat');
 
   // 创建命令处理器
   const groupCommands = new GroupCommands(bookmarkManager);
@@ -50,6 +73,17 @@ export function activate(context: vscode.ExtensionContext) {
   // 注册视图模式切换命令
   const toggleViewModeCommand = vscode.commands.registerCommand('bookmark.toggleViewMode', () => {
     (treeDataProvider as any).toggleViewMode();
+    // 更新上下文变量
+    const viewMode = (treeDataProvider as any).getViewMode();
+    vscode.commands.executeCommand('setContext', 'bookmark.viewMode', viewMode);
+  });
+
+  // 注册全部展开命令
+  const expandAllCommand = vscode.commands.registerCommand('bookmark.expandAll', async () => {
+    const rootItems = await treeDataProvider.getChildren();
+    for (const item of rootItems) {
+      await expandAllChildren(treeView, treeDataProvider, item);
+    }
   });
 
   // 将所有 disposables 添加到 context
@@ -58,7 +92,8 @@ export function activate(context: vscode.ExtensionContext) {
     ...groupCommandDisposables,
     ...fileCommandDisposables,
     refreshCommand,
-    toggleViewModeCommand
+    toggleViewModeCommand,
+    expandAllCommand
   );
 
   // 显示欢迎消息（仅在首次激活时）

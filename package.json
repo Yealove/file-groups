@@ -2,7 +2,7 @@
   "name": "file-group-manager",
   "displayName": "%bookmark.displayName%",
   "description": "%bookmark.description%",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "yealove",
   "engines": {
     "vscode": "^1.85.0"
@@ -72,6 +72,11 @@
       {
         "command": "bookmark.copyFilePath",
         "title": "%bookmark.command.copyFilePath%"
+      },
+      {
+        "command": "bookmark.expandAll",
+        "title": "%bookmark.command.expandAll%",
+        "icon": "$(expand-all)"
       }
     ],
     "viewsContainers": {
@@ -119,6 +124,11 @@
           "command": "bookmark.toggleViewMode",
           "when": "view == bookmarkTree",
           "group": "navigation"
+        },
+        {
+          "command": "bookmark.expandAll",
+          "when": "view == bookmarkTree",
+          "group": "navigation@2"
         }
       ],
       "view/item/context": [

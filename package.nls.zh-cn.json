@@ -10,6 +10,7 @@
   "bookmark.command.toggleViewMode": "切换显示模式",
   "bookmark.command.copyFileName": "复制文件名",
   "bookmark.command.copyFilePath": "复制相对路径",
+  "bookmark.command.expandAll": "全部展开",
   "bookmark.viewContainer": "文件分组",
   "bookmark.view": "我的分组"
 }

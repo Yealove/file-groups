@@ -5,6 +5,27 @@ All notable changes to the "File Group Manager" extension will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2026-02-26
+
+### Added
+
+**视图增强 (View Enhancements)**
+- 新增全部展开按钮 - Added Expand All button to recursively expand all groups and directories
+- 新增 VSCode 内置的全部折叠按钮 - Added built-in Collapse All button via showCollapseAll
+- 优化按钮布局顺序 - Optimized toolbar button layout order
+
+### Features
+
+**全部展开 (Expand All)**
+- 一键展开所有分组和目录节点 - One-click expand all groups and directory nodes
+- 在平铺和树形视图模式下均可用 - Available in both flat and tree view modes
+- 递归展开多层级结构 - Recursively expand multi-level structures
+- 按钮位置：工具栏最右侧 - Button position: Far right of toolbar
+
+**全部折叠 (Collapse All)**
+- 使用 VSCode 内置折叠功能 - Uses VSCode built-in collapse functionality
+- 快速收起所有展开的节点 - Quickly collapse all expanded nodes
+
 ## [1.0.2] - 2026-02-26
 
 ### Fixed
